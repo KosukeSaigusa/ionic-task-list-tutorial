@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
+  "volta": {
+    "node": "14.20.0",
+    "npm": "6.14.17"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
