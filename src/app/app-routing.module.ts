@@ -3,15 +3,15 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    // パスが空の場合は /folder/Index にリダイレクトする
+    // パスが空の場合は /home にリダイレクトする
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
-    path: 'folder/:id',
+    path: 'home',
     loadChildren: () =>
-      import('./folder/folder.module').then((m) => m.FolderPageModule),
+      import('./home/home.module').then((m) => m.HomePageModule),
   },
   {
     path: 'tasks',

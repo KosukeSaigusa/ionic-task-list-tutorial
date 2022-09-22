@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-folder',
-  templateUrl: './folder.page.html',
-  styleUrls: ['./folder.page.scss'],
+  selector: 'app-home',
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
-export class FolderPage implements OnInit {
-  public folder: string;
+export class HomePage implements OnInit {
+  public home: string;
   title = 'タスク登録';
 
   /** 入力値を受け付けて双方向バインディングする変数。 */
@@ -19,18 +19,17 @@ export class FolderPage implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+    this.home = this.activatedRoute.snapshot.paramMap.get('id');
   }
 
   /**
-   * 現在入力されている task の値を用いて、タスクを追加する。
+   * 現在入力されている task の値を用いて、タスクを保存する。
    * localStorage.tasks に JSON.stringify() で文字列化したタスク一覧を保存する。
-   * 追加後は、task の入力値を空に戻す。
+   * 保存後は、task の入力値を空に戻す。
    */
-  addTask(): void {
-    const tasks: { name: string }[] = JSON.parse(
-      localStorage.getItem(this.tasksLocalStorageKey)
-    );
+  saveTask(): void {
+    const tasks: { name: string }[] =
+      JSON.parse(localStorage.getItem(this.tasksLocalStorageKey)) || [];
     tasks.push({ name: this.task });
     localStorage.setItem(this.tasksLocalStorageKey, JSON.stringify(tasks));
     this.task = '';

@@ -16,7 +16,7 @@
     ngForm という機能を入れることできる。
     こうすることで、下の ion-button 要素の `[disabled]` 属性を機能させることができる。
   -->
-  <form class="ion-padding" (submit)="addTask()" #f="ngForm">
+  <form class="ion-padding" (submit)="saveTask()" #f="ngForm">
     <!--
       ion-item のドキュメント：
       https://ionicframework.jp/docs/api/item/
@@ -43,7 +43,7 @@
     </ion-item>
     <!-- type に submit を追加して、submit イベントを発火させる -->
     <ion-button expand="block" type="submit" [disabled]="!f.form.valid"
-      >追加</ion-button
+      >登録</ion-button
     >
   </form>
 </ion-content>

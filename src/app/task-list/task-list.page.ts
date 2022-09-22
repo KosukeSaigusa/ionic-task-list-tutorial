@@ -76,7 +76,7 @@ export class TaskListPage implements OnInit {
     actionSheet.present();
   }
 
-  /** Prompt タイプアラートを表示して、
+  /** Prompt タイプのアラートを表示して、
    * 指定した番号のタスクの名前を変更する。 */
   async renameTask(index: number): Promise<void> {
     const prompt = await this.alertController.create({
