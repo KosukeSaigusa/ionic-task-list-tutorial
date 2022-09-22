@@ -9,7 +9,15 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let task of tasks">
+    <!--
+      button 属性を true にすることで button タグとしてレンダリングされる。
+      そうすることでマウスオーバーなど資格エフェクトが追加される。
+    -->
+    <ion-item
+      *ngFor="let task of tasks; let index = index"
+      [button]="true"
+      (click)="changeTask(index)"
+    >
       <ion-label>{{task.name}}</ion-label>
     </ion-item>
   </ion-list>
