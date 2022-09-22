@@ -14,7 +14,7 @@ const routes: Routes = [
       import('./folder/folder.module').then((m) => m.FolderPageModule),
   },
   {
-    path: 'task-list',
+    path: 'tasks',
     loadChildren: () =>
       import('./task-list/task-list.module').then((m) => m.TaskListPageModule),
   },

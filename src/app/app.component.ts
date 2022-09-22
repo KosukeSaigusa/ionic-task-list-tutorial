@@ -5,8 +5,10 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
+  public appPages: { title: string; url: string; icon: string }[] = [
+    // icon は Ionicons というデフォルトで利用可能なアイコンパッケージの名前を設定している
+    { title: 'タスク登録', url: '/folder/Inbox', icon: 'mail' },
+    { title: 'タスク一覧', url: '/tasks', icon: 'list' },
     { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
     { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
     { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
