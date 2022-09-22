@@ -8,11 +8,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FolderPage implements OnInit {
   public folder: string;
+  title = 'タスク登録';
+  tasks: { name: string }[] = [
+    {
+      name: 'タスク 1',
+    },
+    {
+      name: 'タスク 2',
+    },
+  ];
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
   }
-
 }

@@ -1,21 +1,33 @@
+<!-- 上部のメニューボタンとページタイトルの部分 -->
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <ion-title>{{ title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!-- 中央のコンテンツ部分 -->
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <form class="ion-padding">
+    <!--
+      ion-item のドキュメント：
+      https://ionicframework.jp/docs/api/item/
+      テキストを左寄せにして、テキストの幅がアイテムより広い場合には省略記号 (ellipsis) を
+      表示するような機能もある。
+    -->
+    <ion-item lines="full" class="ion-padding-bottom">
+      <!-- ion-label はフォーカスすると左上に移動する入力ラベルのような要素 -->
+      <!-- ion-input はその名の通りユーザーのを入力を受け付けるための要素 -->
+      <ion-label position="floating">タスク</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-button expand="block">追加</ion-button>
+  </form>
+  <ion-list>
+    <ion-item *ngFor="let task of tasks">
+      <ion-label>{{ task.name }}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
