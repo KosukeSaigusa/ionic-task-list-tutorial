@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <!--
+      button 属性を true にすることで button タグとしてレンダリングされる。
+      そうすることでマウスオーバーなど資格エフェクトが追加される。
+    -->
+    <ion-item
+      *ngFor="let task of tasks; let index = index"
+      [button]="true"
+      (click)="changeTask(index)"
+    >
+      <ion-label>{{task.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
