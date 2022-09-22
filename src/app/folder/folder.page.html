@@ -10,7 +10,13 @@
 
 <!-- 中央のコンテンツ部分 -->
 <ion-content [fullscreen]="true">
-  <form class="ion-padding">
+  <!--
+    submit イベントが起きたときに addTask() メソッドを実行する。
+    #f="ngForm" を追記することで、HTML テンプレート内で使うローカル変数である f に
+    ngForm という機能を入れることできる。
+    こうすることで、下の ion-button 要素の `[disabled]` 属性を機能させることができる。
+  -->
+  <form class="ion-padding" (submit)="addTask()" #f="ngForm">
     <!--
       ion-item のドキュメント：
       https://ionicframework.jp/docs/api/item/
@@ -21,9 +27,24 @@
       <!-- ion-label はフォーカスすると左上に移動する入力ラベルのような要素 -->
       <!-- ion-input はその名の通りユーザーのを入力を受け付けるための要素 -->
       <ion-label position="floating">タスク</ion-label>
-      <ion-input type="text"></ion-input>
+      <!--
+        ngModel というプロパティを [()] でくくることで
+        双方向バインディングをできるようにする。
+        入力文字数に 1 文字以上 20 文字以下の制限を設ける。
+      -->
+      <ion-input
+        type="text"
+        [(ngModel)]="task"
+        name="task"
+        required
+        minlength="1"
+        maxlength="20"
+      ></ion-input>
     </ion-item>
-    <ion-button expand="block">追加</ion-button>
+    <!-- type に submit を追加して、submit イベントを発火させる -->
+    <ion-button expand="block" type="submit" [disabled]="!f.form.valid"
+      >追加</ion-button
+    >
   </form>
   <ion-list>
     <ion-item *ngFor="let task of tasks">
