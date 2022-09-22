@@ -13,6 +13,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./folder/folder.module').then((m) => m.FolderPageModule),
   },
+  {
+    path: 'task-list',
+    loadChildren: () =>
+      import('./task-list/task-list.module').then((m) => m.TaskListPageModule),
+  },
 ];
 
 @NgModule({
