@@ -10,6 +10,7 @@ export class AppComponent {
     // https://ionicons.com/
     { title: 'タスク登録', url: '/home', icon: 'add' },
     { title: 'タスク一覧', url: '/tasks', icon: 'list' },
+    { title: 'GitHub リポジトリ', url: '/github-repos', icon: 'logo-github' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor() {}
