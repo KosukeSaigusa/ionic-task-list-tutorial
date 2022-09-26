@@ -18,6 +18,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./task-list/task-list.module').then((m) => m.TaskListPageModule),
   },
+  {
+    path: 'github-repos',
+    loadChildren: () =>
+      import('./github-repos/github-repos.module').then(
+        (m) => m.GithubReposPageModule
+      ),
+  },
 ];
 
 @NgModule({
