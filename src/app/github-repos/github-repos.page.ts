@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-github-repos',
@@ -11,26 +12,40 @@ export class GithubReposPage implements OnInit {
 
   gitHubRepos: GitHubRepo[] = [];
 
-  constructor(public http: HttpClient) {}
+  constructor(
+    public http: HttpClient,
+    public loadingController: LoadingController
+  ) {}
 
-  /** ページの表示が完了する際に発火するライフサイクルイベント。 */
+  /**
+   * ページの表示が完了する際に発火するライフサイクルイベント。
+   * ローディングを管理しつつ、GitHub の Search Repositories API をコールする。
+   *  */
   async ionViewDidEnter(): Promise<void> {
-    const response = await this.http
-      .get<SearchGitHubReposResponse>(
-        'https://api.github.com/search/repositories',
-        {
-          headers: {
-            accept: 'application/vnd.github.v3+json',
-          },
-          params: {
-            q: 'ionic',
-            page: 1,
-            perPage: 100,
-          },
-        }
-      )
-      .toPromise();
-    this.gitHubRepos = response.items;
+    const loadingElement = await this.loadingController.create({
+      message: 'Loading...',
+    });
+    await loadingElement.present();
+    try {
+      const response = await this.http
+        .get<SearchGitHubReposResponse>(
+          'https://api.github.com/search/repositories',
+          {
+            headers: {
+              accept: 'application/vnd.github.v3+json',
+            },
+            params: {
+              q: 'ionic',
+              page: 1,
+              perPage: 100,
+            },
+          }
+        )
+        .toPromise();
+      this.gitHubRepos = response.items;
+    } finally {
+      loadingElement.dismiss();
+    }
   }
 
   ngOnInit(): void {}
