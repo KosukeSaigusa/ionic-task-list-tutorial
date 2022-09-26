@@ -21,11 +21,7 @@
                 iOS と Android およびデスクトップ等でアイコンの設定を変えている。
                 md は Material Design のことらしい。
               -->
-              <ion-icon
-                slot="start"
-                [ios]="p.icon + '-outline'"
-                [md]="p.icon + '-sharp'"
-              ></ion-icon>
+              <ion-icon slot="start" [ios]="p.icon" [md]="p.icon"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
