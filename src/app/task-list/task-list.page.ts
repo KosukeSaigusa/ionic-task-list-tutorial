@@ -7,7 +7,7 @@ import { ActionSheetController, AlertController } from '@ionic/angular';
   styleUrls: ['./task-list.page.scss'],
 })
 export class TaskListPage implements OnInit {
-  readonly title = 'タスク一覧';
+  readonly pageTitle = 'タスク一覧';
 
   /** 画面に表示するタスク一覧。 */
   tasks: { name: string }[] = [];
