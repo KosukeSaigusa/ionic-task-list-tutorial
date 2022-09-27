@@ -25,6 +25,10 @@ const routes: Routes = [
         (m) => m.GithubReposPageModule
       ),
   },
+  {
+    path: 'github-repo',
+    loadChildren: () => import('./github-repo/github-repo.module').then( m => m.GithubRepoPageModule)
+  },
 ];
 
 @NgModule({
