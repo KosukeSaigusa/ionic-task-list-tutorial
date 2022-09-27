@@ -13,7 +13,7 @@ export class GithubReposPage implements OnInit {
   gitHubRepos: GitHubRepo[] = [];
 
   constructor(
-    public http: HttpClient,
+    public httpClient: HttpClient,
     public loadingController: LoadingController
   ) {}
 
@@ -27,7 +27,7 @@ export class GithubReposPage implements OnInit {
     });
     await loadingElement.present();
     try {
-      const response = await this.http
+      const response = await this.httpClient
         .get<SearchGitHubReposResponse>(
           'https://api.github.com/search/repositories',
           {

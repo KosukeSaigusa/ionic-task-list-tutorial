@@ -22,6 +22,7 @@ interface GitHubRepo {
 /** GitHub API の Owner。 */
 interface Owner {
   id: number;
+  login: string;
   avatar_rrl: string;
   html_url: string;
 }

@@ -5,9 +5,9 @@ import { GithubRepoPage } from './github-repo.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: GithubRepoPage
-  }
+    path: ':ownerName/:repoName',
+    component: GithubRepoPage,
+  },
 ];
 
 @NgModule({
