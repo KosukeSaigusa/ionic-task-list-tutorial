@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-card
-    *ngFor="let repo of gitHubRepos"
+    *ngFor="let repo of gitHubRepos; trackBy: trackByRepoId"
     routerLink="/github-repo/{{repo.owner.login}}/{{repo.name}}"
   >
     <ion-card-header>

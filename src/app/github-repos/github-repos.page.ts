@@ -17,6 +17,8 @@ export class GithubReposPage implements OnInit {
     public loadingController: LoadingController
   ) {}
 
+  ngOnInit(): void {}
+
   /**
    * ページの表示が完了する際に発火するライフサイクルイベント。
    * ローディングを管理しつつ、GitHub の Search Repositories API をコールする。
@@ -25,7 +27,11 @@ export class GithubReposPage implements OnInit {
     const loadingElement = await this.loadingController.create({
       message: 'Loading...',
     });
-    await loadingElement.present();
+    // まだ GitHub リポジトリを取得していないときだけ Loading を表示する。
+    // つまり、リポジトリ詳細画面から戻ってきたときには Loading は表示しない。
+    if (!this.gitHubRepos.length) {
+      await loadingElement.present();
+    }
     try {
       const response = await this.httpClient
         .get<SearchGitHubReposResponse>(
@@ -48,5 +54,11 @@ export class GithubReposPage implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  /**
+   * ngFor で再描画のパフォーマンスを最適化する目的で、
+   * ユニークな GitHubRepo.id に基づくバインディングが行われるようにする。
+   * */
+  trackByRepoId(_: number, gitHubRepo: GitHubRepo): number {
+    return gitHubRepo.id;
+  }
 }
