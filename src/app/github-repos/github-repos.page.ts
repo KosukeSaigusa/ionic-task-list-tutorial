@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { GitHubService } from '../github.service';
+import { GitHubRepo } from '../interfaces/github';
 
 @Component({
   selector: 'app-github-repos',

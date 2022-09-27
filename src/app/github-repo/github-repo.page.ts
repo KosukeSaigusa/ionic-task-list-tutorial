@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { GitHubService } from '../github.service';
+import { GitHubRepo } from '../interfaces/github';
 
 @Component({
   selector: 'app-github-repo',
