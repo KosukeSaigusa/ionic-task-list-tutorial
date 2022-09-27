@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { GitHubService } from '../github.service';
 
 @Component({
   selector: 'app-github-repo',
@@ -19,7 +19,7 @@ export class GithubRepoPage implements OnInit {
    * */
   constructor(
     public activatedRoute: ActivatedRoute,
-    public httpClient: HttpClient
+    public gitHubService: GitHubService
   ) {}
 
   // Note: 下のように async/await で書いたときとの挙動の違いを知りたい。
@@ -37,16 +37,9 @@ export class GithubRepoPage implements OnInit {
   // }
 
   async ionViewDidEnter(): Promise<void> {
-    const repo = await this.httpClient
-      .get<GitHubRepo>(
-        `https://api.github.com/repos/${this.ownerName}/${this.repoName}`,
-        {
-          headers: {
-            accept: 'application/vnd.github.v3+json',
-          },
-        }
-      )
-      .toPromise();
-    this.repo = repo;
+    this.repo = await this.gitHubService.fetchRepo({
+      ownerName: this.ownerName,
+      repoName: this.repoName,
+    });
   }
 }
