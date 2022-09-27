@@ -8,7 +8,10 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let repo of gitHubRepos">
+  <ion-card
+    *ngFor="let repo of gitHubRepos; trackBy: trackByRepoId"
+    routerLink="/github-repo/{{repo.owner.login}}/{{repo.name}}"
+  >
     <ion-card-header>
       <ion-card-subtitle
         >{{repo.updated_at | date:"yyyy-MM-dd"}}</ion-card-subtitle

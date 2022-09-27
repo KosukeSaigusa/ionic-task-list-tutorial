@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/github-repos"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{pageTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="repo; else skeleton">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>
+          {{ repo.updated_at | date: "yyyy-MM-dd" }}
+        </ion-card-subtitle>
+        <ion-card-title>{{repo.name}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    <div class="ion-padding">{{repo.description}}</div>
+  </div>
+  <ng-template #skeleton>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>
+          <ion-skeleton-text animated="true"></ion-skeleton-text>
+        </ion-card-subtitle>
+        <ion-card-title
+          ><ion-skeleton-text animated="true"></ion-skeleton-text
+        ></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    <div class="ion-padding">
+      <ion-skeleton-text animated="true"></ion-skeleton-text>
+      <ion-skeleton-text animated="true"></ion-skeleton-text>
+    </div>
+  </ng-template>
+</ion-content>
