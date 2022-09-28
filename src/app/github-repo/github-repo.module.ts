@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { GithubRepoPageRoutingModule } from './github-repo-routing.module';
 
 import { GithubRepoPage } from './github-repo.page';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    GithubRepoPageRoutingModule
+    GithubRepoPageRoutingModule,
+    SharedModule,
   ],
-  declarations: [GithubRepoPage]
+  declarations: [GithubRepoPage],
 })
 export class GithubRepoPageModule {}
