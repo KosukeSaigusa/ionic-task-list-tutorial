@@ -10,12 +10,9 @@
 <ion-content>
   <div *ngIf="repo; else skeleton">
     <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>
-          {{ repo.updated_at | date: "yyyy-MM-dd" }}
-        </ion-card-subtitle>
-        <ion-card-title>{{repo.name}}</ion-card-title>
-      </ion-card-header>
+      <!-- この書き方だと Type 'string' is not assignable to type 'GitHubRepo' のエラーとなる。-->
+      <!-- <app-github-head repo="{{repo}}"></app-github-head> -->
+      <app-github-head [repo]="repo"></app-github-head>
     </ion-card>
     <div class="ion-padding">{{repo.description}}</div>
   </div>
