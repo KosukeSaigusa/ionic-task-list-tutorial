@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
 /** Search Repositories API のレスポンス。 */
-interface SearchGitHubReposResponse {
+export interface SearchGitHubReposResponse {
   total_count: number;
   incomplete_result: number;
   items: GitHubRepo[];
 }
 
 /** GitHub API の Repo。 */
-interface GitHubRepo {
+export interface GitHubRepo {
   id: number;
   name: string;
   owner: Owner;
@@ -20,7 +20,7 @@ interface GitHubRepo {
 }
 
 /** GitHub API の Owner。 */
-interface Owner {
+export interface Owner {
   id: number;
   login: string;
   avatar_rrl: string;

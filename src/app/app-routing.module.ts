@@ -21,13 +21,7 @@ const routes: Routes = [
   {
     path: 'github-repos',
     loadChildren: () =>
-      import('./github-repos/github-repos.module').then(
-        (m) => m.GithubReposPageModule
-      ),
-  },
-  {
-    path: 'github-repo',
-    loadChildren: () => import('./github-repo/github-repo.module').then( m => m.GithubRepoPageModule)
+      import('./github/github.module').then((m) => m.GithubReposPageModule),
   },
 ];
 

@@ -4,9 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { GithubReposPageRoutingModule } from './github-repos-routing.module';
+import { GithubReposPageRoutingModule } from './github-routing.module';
 
-import { GithubReposPage } from './github-repos.page';
+import { SharedModule } from '../shared/shared.module';
+import { GitHubReposPage } from './repos/repos.page';
+import { GitHubRepoPage } from './repo/repo.page';
 
 @NgModule({
   imports: [
@@ -14,7 +16,8 @@ import { GithubReposPage } from './github-repos.page';
     FormsModule,
     IonicModule,
     GithubReposPageRoutingModule,
+    SharedModule,
   ],
-  declarations: [GithubReposPage],
+  declarations: [GitHubReposPage, GitHubRepoPage],
 })
 export class GithubReposPageModule {}
