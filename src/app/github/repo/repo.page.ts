@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { GitHubService } from '../github.service';
-import { GitHubRepo } from '../interfaces/github';
+import { GitHubService } from '../../github.service';
+import { GitHubRepo } from '../../interfaces/github';
 
 @Component({
   selector: 'app-github-repo',
-  templateUrl: './github-repo.page.html',
-  styleUrls: ['./github-repo.page.scss'],
+  templateUrl: './repo.page.html',
+  styleUrls: ['./repo.page.scss'],
 })
-export class GithubRepoPage implements OnInit {
+export class GitHubRepoPage implements OnInit {
   readonly pageTitle = 'GitHub リポジトリ詳細';
   ownerName: string;
   repoName: string;

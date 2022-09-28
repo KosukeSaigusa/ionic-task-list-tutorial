@@ -10,7 +10,7 @@
 <ion-content>
   <ion-card
     *ngFor="let repo of gitHubRepos; trackBy: trackByRepoId"
-    routerLink="/github-repo/{{repo.owner.login}}/{{repo.name}}"
+    routerLink="/github-repos/{{repo.owner.login}}/{{repo.name}}"
   >
     <!-- この書き方だと Type 'string' is not assignable to type 'GitHubRepo' のエラーとなる。-->
     <!-- <app-github-head repo="{{repo}}"></app-github-head> -->

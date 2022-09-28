@@ -1,15 +1,14 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
-import { GitHubService } from '../github.service';
-import { GitHubRepo } from '../interfaces/github';
+import { GitHubService } from '../../github.service';
+import { GitHubRepo } from '../../interfaces/github';
 
 @Component({
   selector: 'app-github-repos',
-  templateUrl: './github-repos.page.html',
-  styleUrls: ['./github-repos.page.scss'],
+  templateUrl: './repos.page.html',
+  styleUrls: ['./repos.page.scss'],
 })
-export class GithubReposPage implements OnInit {
+export class GitHubReposPage implements OnInit {
   readonly pageTitle = 'GitHub リポジトリ';
 
   gitHubRepos: GitHubRepo[] = [];

@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { GithubReposPage } from './github-repos.page';
+import { GitHubRepoPage } from './repo/repo.page';
+import { GitHubReposPage } from './repos/repos.page';
 
 const routes: Routes = [
+  { path: '', component: GitHubReposPage },
   {
-    path: '',
-    component: GithubReposPage,
+    path: ':ownerName/:repoName',
+    component: GitHubRepoPage,
   },
 ];
 

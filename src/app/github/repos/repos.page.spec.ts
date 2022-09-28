@@ -1,19 +1,18 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
-
-import { GithubReposPage } from './github-repos.page';
+import { GitHubReposPage } from './repos.page';
 
 describe('GithubReposPage', () => {
-  let component: GithubReposPage;
-  let fixture: ComponentFixture<GithubReposPage>;
+  let component: GitHubReposPage;
+  let fixture: ComponentFixture<GitHubReposPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [GithubReposPage],
+      declarations: [GitHubReposPage],
       imports: [IonicModule.forRoot()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(GithubReposPage);
+    fixture = TestBed.createComponent(GitHubReposPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
